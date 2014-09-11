@@ -28,7 +28,7 @@ remote_directory "/etc/sensu/plugins/" do
 end
 
 template "/etc/sensu/conf.d/client.json" do
-  owner "www"
+  owner "root"
   mode  0644
   source "client.json.erb"
 end

@@ -1,0 +1,11 @@
+{
+    "sensu": {
+        "node_subscriptions": [
+            "sensu_client"
+        ]
+    },
+    "run_list": [
+        "recipe[sensu-chef]",
+        "recipe[sensu-client-plugin]"
+    ]
+}

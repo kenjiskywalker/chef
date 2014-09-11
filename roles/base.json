@@ -1,0 +1,18 @@
+{
+    "name": "base",
+    "description": "vagrant base",
+    "json_class": "Chef::Role",
+    "override_attributes": {
+        "sensu": {
+            "role_subscriptions": [
+                "all"
+            ],
+            "use_embedded_ruby": true
+        }
+    },
+    "default_attributes": {
+    },
+    "chef_type": "role",
+    "run_list": [
+    ]
+}
