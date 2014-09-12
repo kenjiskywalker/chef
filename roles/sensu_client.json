@@ -13,6 +13,8 @@
     "run_list": [
         "role[base]",
         "recipe[sensu]",
-        "recipe[sensu-client-plugin]"
+        "recipe[sensu-client-config]",
+        "recipe[sensu-client-plugin]",
+        "recipe[sensu::client_service]"
     ]
 }
