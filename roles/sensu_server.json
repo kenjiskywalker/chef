@@ -1,14 +1,5 @@
 {
-    "redisio": {
-        "servers": {
-            "port": 6379
-        }
-    },
     "sensu": {
-        "dashboard": {
-            "user": "sensu_user",
-            "password": "sensu_user_pass"
-        },
         "rabbitmq": {
             "host": "localhost",
             "port": 5671,
