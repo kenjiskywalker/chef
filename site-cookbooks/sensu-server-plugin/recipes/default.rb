@@ -13,7 +13,7 @@
 #
 # plugins.each do |plugin|
 #   execute 'bundle install' do
-#     command "curl -OsS https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/#{plugin}; chmod +x #{plugin}" 
+#     command "curl -OsS https://raw.githubusercontent.com/sensu/sensu-community-plugins/master/plugins/system/#{plugin}; chmod +x #{plugin}"
 #     cwd '/etc/sensu/plugins/'
 #     not_if { File.exist?("/etc/sensu/plugins/#{plugin}") }
 #   end
@@ -63,12 +63,4 @@ remote_directory "/etc/sensu/plugins/" do
   files_mode 0755
   mode 0755
   owner "root"
-end
-
-service "sensu-server" do
-  action [:enable, :start]
-end
-
-service "sensu-api" do
-  action [:enable, :start]
 end

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: sensu-server-plugin
+# Cookbook Name:: sensu-client-plugin
 # Recipe:: default
 #
 # Copyright 2014, kenjiskywalker.
@@ -27,22 +27,12 @@ remote_directory "/etc/sensu/plugins/" do
   owner "root"
 end
 
-template "/etc/sensu/conf.d/client.json" do
-  owner "root"
-  mode  0644
-  source "client.json.erb"
-end
-
-gems = [ "redis" ]
+gems = ["redis"]
 
 gems.each do |gem|
-  execute "/opt/sensu/embedded/bin/gem install" do
+  execute "/opt/sensu/embedded/bin/gem install #{gem}" do
     command "/opt/sensu/embedded/bin/gem install #{gem}"
     cwd "/tmp/"
     not_if "/opt/sensu/embedded/bin/gem list | grep -w \"^#{gem}\s\""
   end
-end
-
-service "sensu-client" do
-  action [:enable, :start]
 end
