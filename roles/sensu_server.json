@@ -23,6 +23,7 @@
         "role[base]",
         "recipe[sensu]",
         "recipe[sensu::redis]",
-        "recipe[sensu::rabbitmq]"
+        "recipe[sensu::rabbitmq]",
+        "recipe[uchiwa]"
     ]
 }
