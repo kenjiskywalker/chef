@@ -20,12 +20,6 @@
 # end
 #
 
-directory "/etc/sensu/conf.d/checks/" do
-  mode 0755
-  action :create
-  owner "root"
-end
-
 remote_directory "/etc/sensu/conf.d/checks/" do
   source "checks"
   mode 0755
@@ -35,12 +29,6 @@ end
 remote_directory "/etc/sensu/conf.d/metrics/" do
   source "metrics"
   mode 0755
-  owner "root"
-end
-
-directory "/etc/sensu/conf.d/handlers/" do
-  mode 0755
-  action :create
   owner "root"
 end
 
