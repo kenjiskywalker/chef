@@ -1,11 +1,18 @@
 {
     "sensu": {
+        "rabbitmq": {
+            "host": "localhost",
+            "port": 5671,
+            "vhost": "/sensu",
+            "password": "sensu_rabbitmq_pass"
+        },
         "node_subscriptions": [
             "sensu_client"
         ]
     },
     "run_list": [
-        "recipe[sensu-chef]",
+        "role[base]",
+        "recipe[sensu]",
         "recipe[sensu-client-plugin]"
     ]
 }
