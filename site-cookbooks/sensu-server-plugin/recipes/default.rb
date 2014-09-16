@@ -60,3 +60,13 @@ remote_directory "/etc/sensu/plugins/" do
   mode 0755
   owner "root"
 end
+
+gems = ["redis"]
+
+gems.each do |gem|
+  execute "/opt/sensu/embedded/bin/gem install #{gem}" do
+    command "/opt/sensu/embedded/bin/gem install #{gem}"
+    cwd "/tmp/"
+    not_if "/opt/sensu/embedded/bin/gem list | grep -w \"^#{gem}\s\""
+  end
+end
