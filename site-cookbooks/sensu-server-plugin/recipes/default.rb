@@ -22,18 +22,20 @@
 
 remote_directory "/etc/sensu/conf.d/checks/" do
   source "checks"
+  files_mode 0644
+  mode 0755
+  owner "root"
+end
+
+remote_directory "/etc/sensu/metrics/" do
+  source "metrics"
+  files_mode 0755
   mode 0755
   owner "root"
 end
 
 remote_directory "/etc/sensu/conf.d/metrics/" do
-  source "metrics"
-  mode 0755
-  owner "root"
-end
-
-remote_directory "/etc/sensu/conf.d/handlers/" do
-  source "handlers_config"
+  source "metrics_config"
   files_mode 0644
   mode 0755
   owner "root"
@@ -42,6 +44,12 @@ end
 remote_directory "/etc/sensu/handlers/" do
   source "handlers"
   files_mode 0755
+  mode 0755
+  owner "root"
+end
+remote_directory "/etc/sensu/conf.d/handlers/" do
+  source "handlers_config"
+  files_mode 0644
   mode 0755
   owner "root"
 end
